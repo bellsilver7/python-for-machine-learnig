@@ -22,33 +22,14 @@
 
 ### 머신러닝의 종류
 
-<table>
-  <tr>
-    <th>종류</th>
-    <th>설명</th>
-  </tr>
-  <tr>
-    <td rowspan="2">교사학습</td>
-    <td>데이터와 함께 답을 입력한다.</td>
-  </tr>
-  <tr>
-    <td>다른 데이터의 답을 예측한다.</td>
-  </tr>
-<tr>
-    <td rowspan="2">비교사학습</td>
-    <td>데이터는 입력하지만 답은 입력하지 않는다.</td>
-  </tr>
-  <tr>
-    <td>다른 데이터의 규칙성을 찾는다.</td>
-  </tr>
-<tr>
-    <td rowspan="2">강화학습</td>
-    <td>부분적으로 답을 입력한다.</td>
-  </tr>
-  <tr>
-    <td>데이터 기반으로 최적의 답을 찾는다.</td>
-  </tr>
-</table>
+| 종류    | 설명                      |
+|-------|-------------------------|
+| 교사학습  | 데이터와 함께 답을 입력한다.        |
+|       | 다른 데이터의 답을 예측한다.        |
+| 비교사학습 | 데이터는 입력하지만 답은 입력하지 않는다. |
+|       | 다른 데이터의 규칙성을 찾는다.       |
+| 강화학습  | 부분적으로 답을 입력한다.          |
+|       | 데이터 기반으로 최적의 답을 찾는다.    |
 
 **교사학습**
 
@@ -108,4 +89,47 @@
 - 데이터가 너무 적은 경우
 - 모델에 비해 문제가 너무 복잡한 경우
 
+## 4-2 머신러닝 첫걸음
 
+### 머신러닝 프레임워크 scikit-learn
+
+머신러닝 라이브러리의 정석과도 같은 scikit-learn은 다양한 분류기를 지원하며, 머신러닝의 결과를 검증하는 기능도 가지고 있다. 또한 분류, 회귀, 클러스터링, 차원 축소처럼 머신러닝에서 자주 사용되는 다양한
+알고리즘을 지원한다.
+
+**설치**
+
+```shell
+$ pip install -U scikit-learn scipy matplotlib scikit-image
+```
+
+데이터를 읽고 분할하기 위한 pandas 패키지도 설치
+
+```shell
+$ pip install pandas
+```
+
+### XOR 연산 학습해보기
+
+두 입력 중 하나만 참이고, 다른 한 쪽이 거짓일 때 참이 나온다.
+
+| P   | Q   | P xor Q |
+|-----|-----|---------|
+| 0   | 0   | 0       |
+| 1   | 0   | 1       |
+| 0   | 1   | 1       |
+| 1   | 1   | 0       |
+
+```shell
+$ python3 xor-train.py
+예측결과: [0 1 1 0]
+정답률: 4 / 4 = 1.0
+```
+
+- svm : The sklearn.svm module includes Support Vector Machine algorithms.
+- SVC() : Support Vector Classification.
+- fit() : Fit the SVM model according to the given training data.
+
+[1] 학습 기계에 데이터를 학습시킨다 - fit()
+[2] 데이터를 넣어 예측시킨다 - predict()
+
+.ix 함수는 pandas에서 삭제되고 .loc 혹은 .iloc 사용이 권고됨.
