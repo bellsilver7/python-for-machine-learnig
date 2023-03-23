@@ -37,5 +37,5 @@ def to_csv(name, maxdata):
 
 
 # 결과를 파일로 출력하기 --- (※4)
-to_csv("train", 1000)
+to_csv("train", 99999)
 to_csv("t10k", 500)
