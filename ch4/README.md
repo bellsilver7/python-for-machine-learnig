@@ -172,3 +172,50 @@ train_test_split() 메서드를 사용해 훈련 전용 데이터와 학습 전�
 - 손글씨 데이터 'MNIST'는 머신러닝 예제로 유명하다.
 - 대량의 데이터를 처리하는 데는 시간이 걸리므로 일단 조금만 가지고 테스트하는 것도 좋다.
 - 머신러닝의 결과를 확인하려면 훈련 데이터로 사용하지 않은 테스트 데이터를 사용해야 한다.
+
+## 4-4 외국어 문장 판별하기
+
+### 판정 방법
+
+- 언어가 다르면 알파벳의 출현 빈도가 다르다
+- "a"부터 "z"까지의 출현 빈도를 확인하고 이를 특징으로 사용
+
+### 언어 판별 프로그램
+
+- 데이터마다의 분포를 그래프로 확인하기 (lang-plot.py)
+  ![lang-plot.png](lang-plot.png)
+
+- "_tkinter.TclError: no display name and no $DISPLAY environment variable" 에러가 발생할 경우
+  ```shell
+  export MPLBACKEND="agg"
+  ```
+
+- 다른 종류의 그래프
+  ![lang-plot-line.png](lang-plot-line.png)
+
+### 웹 인터페이스 추가하기
+
+- 학습한 매개변수를 저장하는 프로그램
+
+```python
+# ImportError: cannot import name 'joblib' from 'sklearn.externals'
+# 위와 같이 모듈 에러가 발생해 joblib 모듈은 직접 import 하도록 변경
+# from sklearn.externals import joblib
+import joblib
+```
+
+```shell
+$ docker run -it -v $HOME:$HOME -p 8080:8080 mlearn
+docker: Error response from daemon: pull access denied for mlearn, repository does not exist or may require 'docker login': denied: requested access to the resource is denied.
+```
+
+![스크린샷 2023-03-24 오전 10.58.16.png](%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202023-03-24%20%EC%98%A4%EC%A0%84%2010.58.16.png)
+
+docker 실행시 위와 같이 이미지를 내려 받지 못해 웹 실행은 패스
+
+### 정리
+
+- Pandas/matpolotlib을 사용해 간단하게 그래프를 그릴 수 있다.
+- 데이터 그래프로 시각화하면 데이터의 특징과 경향 등을 파악할 수 있다.
+- 머신러닝의 학습 결과를 파일로 저장하면 웹 애플리케이션 등에서 활용할 수 있다.
+ 
