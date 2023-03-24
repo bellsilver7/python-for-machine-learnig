@@ -139,6 +139,36 @@ $ python3 xor-train.py
 train_test_split() 메서드를 사용해 훈련 전용 데이터와 학습 전용 데이터를 분할
 
 **정리**
+
 - 머신러닝을 이용해 데이터를 분류할 수 있다.
 - 교사 학습을 할 때는 데이터와 정답 레이블을 지정해야한다.
 - 훈련 전용 데이터와 테스트 ㅓㅈㄴ용 데이터를 반할하거나, 정답률을 계산하는 것처럼 자주 사용하는 기능에 대해한 메서드가 제공된다.
+
+## 4-3 이미지 내부의 문자 인
+
+### 손글씨 숫자 인식하기
+
+```shell
+!wget http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz
+!gunzip train-images-idx3-ubyte.gz
+!wget http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz
+!gunzip train-labels-idx1-ubyte.gz
+!wget http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz
+!gunzip t10k-images-idx3-ubyte.gz
+!wget http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz
+!gunzip t10k-labels-idx1-ubyte.gz
+```
+
+### 이미지 데이터 학습시키기
+
+- 1000개 데이터 학습 결과
+  ![img.png](img.png)
+
+- 99999개 데이터 학습 결과
+  ![img_1.png](img_1.png)
+
+### 정리
+
+- 손글씨 데이터 'MNIST'는 머신러닝 예제로 유명하다.
+- 대량의 데이터를 처리하는 데는 시간이 걸리므로 일단 조금만 가지고 테스트하는 것도 좋다.
+- 머신러닝의 결과를 확인하려면 훈련 데이터로 사용하지 않은 테스트 데이터를 사용해야 한다.
